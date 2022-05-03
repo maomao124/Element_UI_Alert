@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!--
+Project name(项目名称)：Element_UI_Alert
+  File name(文件名): test5
+  Authors(作者）: mao
+  Author QQ：1296193245
+  GitHub：https://github.com/maomao124/
+  Date(创建日期)： 2022/5/3
+  Time(创建时间)： 21:18
+  Description(描述)： 无
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/element-ui.css">
+    <script src="js/vue.js"></script>
+    <script src="js/element-ui.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <div style="width: 50%">
+        <el-alert center @close="alertClose" show-icon type="success" title="操作成功"></el-alert>
+        <br>
+        <el-alert center @close="alertClose" show-icon type="warning" title="警告"></el-alert>
+        <br>
+        <el-alert center @close="alertClose" show-icon type="info" title="信息"></el-alert>
+        <br>
+        <el-alert center @close="alertClose" show-icon type="error" title="操作失败"></el-alert>
+        <br>
+    </div>
+
+    <div style="width: 50%">
+        <el-alert center @close="alertClose" show-icon effect="dark" type="success" title="操作成功"></el-alert>
+        <br>
+        <el-alert center @close="alertClose" show-icon effect="dark" type="warning" title="警告"></el-alert>
+        <br>
+        <el-alert center @close="alertClose" show-icon effect="dark" type="info" title="信息"></el-alert>
+        <br>
+        <el-alert center @close="alertClose" show-icon effect="dark" type="error" title="操作失败"></el-alert>
+        <br>
+    </div>
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+            alertClose: function ()
+            {
+                this.$message({message: '消息已关闭', type: 'success'});
+            }
+        },
+        mounted()
+        {
+
+        }
+    })
+</script>
+</body>
+</html>
