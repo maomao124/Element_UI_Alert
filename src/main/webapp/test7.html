@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<!--
+Project name(项目名称)：Element_UI_Alert
+  File name(文件名): test7
+  Authors(作者）: mao
+  Author QQ：1296193245
+  GitHub：https://github.com/maomao124/
+  Date(创建日期)： 2022/5/3
+  Time(创建时间)： 21:24
+  Description(描述)： 无
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/element-ui.css">
+    <script src="js/vue.js"></script>
+    <script src="js/element-ui.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <div v-if="screenWidth>1300" style="width:100%;font-size: 36px; text-align: center; border: 3px solid skyblue">
+        大于1300
+        <br>
+        <br>
+        <el-alert description="文字说明文字说明文字说明文字说明文字说明文字说明"
+                  center
+                  show-icon
+                  type="success"
+                  title="窗口宽度大于1300">
+        </el-alert>
+    </div>
+    <div v-if="screenWidth<=1300&&screenWidth>1000"
+         style="width:100%; text-align: center;font-size:36px;border: 3px solid skyblue">
+        1000到1300
+        <br>
+        <br>
+        <el-alert description="文字说明文字说明文字说明文字说明文字说明文字说明"
+                  center
+                  show-icon
+                  type="info"
+                  title="窗口宽度1000到1300">
+        </el-alert>
+    </div>
+    <div v-if="screenWidth<=1000&&screenWidth>768"
+         style="width:100%; text-align: center;font-size:36px;border: 3px solid skyblue">
+        768到1000
+        <br>
+        <br>
+        <el-alert description="文字说明文字说明文字说明文字说明文字说明文字说明"
+                  center
+                  show-icon
+                  type="warning"
+                  title="窗口宽度768到1000">
+        </el-alert>
+    </div>
+    <div v-if="screenWidth<=768" style="width:100%;font-size:36px; text-align: center;border: 3px solid skyblue">
+        小于768
+        <br>
+        <br>
+        <el-alert description="文字说明文字说明文字说明文字说明文字说明文字说明"
+                  center
+                  show-icon
+                  type="error"
+                  title="窗口宽度小于768">
+        </el-alert>
+    </div>
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            screenWidth: null,
+        },
+        methods: {},
+        mounted()
+        {
+            const that = this
+            window.onresize = () =>
+            {
+                return (() =>
+                {
+                    window.screenWidth = document.body.clientWidth
+                    that.screenWidth = window.screenWidth
+                })()
+            }
+            window.screenWidth = document.body.clientWidth
+            that.screenWidth = window.screenWidth
+        }
+    })
+</script>
+</body>
+</html>
